@@ -1,0 +1,115 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeButton {
+    position: absolute;
+    top: calc(20px + var(--safe-area-top));
+    right: 20px;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background 0.2s;
+}
+
+.closeButton:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+.blobContainer {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blob {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff00cc, #333399);
+    filter: blur(20px);
+    opacity: 0.8;
+}
+
+.blob.idle {
+    background: linear-gradient(135deg, #0a84ff, #333399);
+}
+
+.blob.listening {
+    background: linear-gradient(135deg, #ff3b30, #ff9500);
+    filter: blur(15px);
+}
+
+.blob.speaking {
+    background: linear-gradient(135deg, #30d158, #0a84ff);
+    filter: blur(10px);
+}
+
+.core {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border-radius: 50%;
+    filter: blur(30px);
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+}
+
+.statusText {
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    font-family: var(--font-family);
+    opacity: 0.9;
+    min-height: 30px;
+}
+
+.micButton {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.micButton:active {
+    transform: scale(0.95);
+}
+
+.micButton.active {
+    background: white;
+    color: black;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}

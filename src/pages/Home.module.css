@@ -1,0 +1,120 @@
+.feed {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabBar {
+    position: sticky;
+    top: calc(54px + var(--safe-area-top));
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 90;
+    display: flex;
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0 16px;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    position: relative;
+    transition: color 0.2s;
+}
+
+.tab.active {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.activeIndicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px 2px 0 0;
+}
+
+.storiesContainer {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border-color);
+    /* Hide scrollbar */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.storiesContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.storyItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 70px;
+}
+
+.storyRing {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--accent-gradient);
+}
+
+.storyRing.viewed {
+    background: var(--border-color);
+}
+
+.storyAvatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--bg-primary);
+    object-fit: cover;
+}
+
+.storyUsername {
+    font-size: 12px;
+    color: var(--text-primary);
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.postsContainer {
+    padding-top: 0;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,215 @@
+.nav {
+    position: fixed;
+    /* Positioning handled by Framer Motion */
+    background: rgba(255, 255, 255, 0.75);
+    /* Frosted White */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    /* Softer shadow */
+    overflow: hidden;
+    will-change: transform, width, border-radius;
+    transform: translate3d(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullMenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.collapsedIcon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.5);
+    /* Dark grey for inactive */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 8px;
+    border-radius: 50%;
+    position: relative;
+    opacity: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.item:active {
+    transform: scale(0.92);
+}
+
+.active {
+    color: #000000;
+    /* Black for active */
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    opacity: 1;
+}
+
+.item:not(.active):hover {
+    color: #000000;
+}
+
+.auraButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background: none;
+    border: none;
+}
+
+.auraButton:active {
+    transform: scale(0.9);
+}
+
+.auraOrb {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff00cc, #333399);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(51, 51, 153, 0.3);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px rgba(51, 51, 153, 0.3);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
+        transform: scale(1.05);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(51, 51, 153, 0.3);
+        transform: scale(1);
+    }
+}
+
+.matchPopup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    /* Align to the right where the bubble is */
+    background: var(--brand-red);
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+    z-index: 1002;
+    /* Higher than nav (1000) and engagement (1001) */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.matchContent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.matchAvatarSmall {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid white;
+}
+
+.matchTextCol {
+    display: flex;
+    align-items: center;
+}
+
+.matchTitle {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+}
+
+.matchSubtitle {
+    display: none;
+    /* Hide subtitle for pill style */
+}
+
+.popupArrowMatch {
+    position: absolute;
+    bottom: -4px;
+    right: 20px;
+    /* Align with the bubble center approx */
+    width: 8px;
+    height: 8px;
+    background: var(--brand-red);
+    transform: rotate(45deg);
+}
+
+.engagementPopup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: var(--brand-red);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(255, 0, 51, 0.4);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.popupText {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.popupArrow {
+    position: absolute;
+    bottom: -6px;
+    right: 20px;
+    width: 12px;
+    height: 12px;
+    background: var(--brand-red);
+    transform: rotate(45deg);
+}

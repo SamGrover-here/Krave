@@ -1,0 +1,12 @@
+.layout {
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+}
+
+.content {
+    padding-top: calc(54px + var(--safe-area-top));
+    padding-bottom: calc(60px + var(--safe-area-bottom));
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
